@@ -16,3 +16,4 @@ use App\Http\Controllers\BoardController;
 
 Route::get('/', [BoardController::class, 'index'])->name('index');
 Route::get('/about', [BoardController::class, 'about'])->name('about');
+Route::get('/{board_uri}/', [BoardController::class, 'getBoard'])->name('board');
