@@ -13,6 +13,10 @@
         <br />
         <div class="boardlist">
             <h1>Latest Threads</h1>
+            <div class="threads">
+            @include('form.thread')
+            @include('board.threads')
+            </div>
         </div>
     </body>
 </html>

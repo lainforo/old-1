@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Board;
+use App\Models\Thread;
 
 class BoardController extends Controller
 {
@@ -17,13 +18,15 @@ class BoardController extends Controller
     public function about()
     {
         // Probably going to move this somewhere else, too :)
-        return view('about');
+        $boards = Board::orderBy('uri', 'asc')->get();
+        return view('about', ['boards' => $boards]);
     }
 
     public function getBoard($board_uri)
     {
         $boards = Board::orderBy('uri', 'asc')->get();
         $board = Board::where('uri', $board_uri)->first();
-        return view('board.view', ['boards' => $boards, 'board' => $board]);
+        $threads = Thread::where('board', $board_uri)->orderBy('id', 'desc')->get();
+        return view('board.view', ['boards' => $boards, 'board' => $board, 'threads' => $threads]);
     }
 }

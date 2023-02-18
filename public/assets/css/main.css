@@ -1,6 +1,8 @@
 html, body {
 	background: #FFFFEE;
-	color: #800000;
+    color: #800000;
+    font-size: 1vw;
+    font-family:'Times New Roman', Times, serif;
 }
 
 a {
@@ -158,6 +160,10 @@ hr {
 .reply {
 	background: #F0E0D6 !important;
 	color: #800000 !important;
+    width: 65%;
+    border-right: 2px solid #9f9f9f;
+    border-bottom: 3px solid #a98448;
+    padding: 3px;
 }
 
 .replyhl {
@@ -209,4 +215,25 @@ hr {
     margin: auto;
     border-color: #800000;
     border-style: solid;
+}
+
+.threads {
+    text-align: left;
+    align-items: left;
+}
+
+.threadbody {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    font-size: inherit;
+    font-family: inherit;
+    text-align: left;
+}
+
+.noncenter {
+    align-items: left;
+    text-align: left;
 }
