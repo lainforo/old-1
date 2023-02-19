@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('subject', 64);
             $table->string('body', 4096);
             $table->boolean('indexed');
+            $table->boolean('sticky')->default(false);
+            $table->boolean('featured')->default(false);
         });
     }
 

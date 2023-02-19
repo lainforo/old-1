@@ -19,4 +19,10 @@ class AdminController extends Controller
             return "password incorrect.";
         }
     }
+
+    public function adminPanel()
+    {
+        $boards = Board::orderBy('slug', 'asc')->get();
+        return view('admin.panel', compact('boards'));
+    }
 }

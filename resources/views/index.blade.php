@@ -12,8 +12,9 @@
         @include('board.nav')
         <br />
         <div class="boardlist">
-            <h1>Pardon our bugs...</h1>
-            We're adding new stuff!
+            <h1>Welcome to {{ env('LF_NAME') }}</h1>
+            <h2>Featured Posts</h2>
+            @include('board.threads', ['isfeatured' => 'true'])
         </div>
     </body>
 </html>

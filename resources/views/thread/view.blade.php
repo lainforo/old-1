@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>{{ $board->title }} - {{ env('LF_NAME') }}</title>
+        <title>{{ $thread->subject }} - {{ env('LF_NAME') }}</title>
         <link rel="stylesheet" href="{{ URL::asset('assets/css/main.css') }}" />
     </head>
     <body>

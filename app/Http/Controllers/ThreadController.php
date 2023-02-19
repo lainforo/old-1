@@ -11,7 +11,7 @@ class ThreadController extends Controller
 {
     public function getThread($board_uri, $thread_id)
     {
-        $boards = Board::orderBy('uri', 'asc')->get();
+        $boards = Board::orderBy('uri', 'asc')->where('indexed', true)->get();
         $board = Board::where('uri', $board_uri)->first();
         $thread = Thread::where('id', $thread_id)->first();
         $replies = Reply::where('replyto', $thread_id)->get();
@@ -60,5 +60,13 @@ class ThreadController extends Controller
         Thread::where('id', $request->threadid)->delete();
         Reply::where('replyto', $request->threadid)->delete();
         return redirect(route('index'));
+    }
+
+    public function featureThread(Request $request)
+    {
+        $thread = Thread::where('id', $request->threadid)->first();
+        $thread->featured = true;
+        $thread->save();
+        return redirect()->back();
     }
 }

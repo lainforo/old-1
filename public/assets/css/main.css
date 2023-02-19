@@ -230,10 +230,18 @@ hr {
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
     font-size: inherit;
     font-family: inherit;
-    text-align: left;
 }
 
 .noncenter {
     align-items: left;
     text-align: left;
+}
+
+.featured {
+	border-color: green;
+	background-color: rgba(188, 236, 188, 0.443);
+	border-style: solid;
+	border-width: 1px;
+	width: inherit;
+	margin: inherit;
 }

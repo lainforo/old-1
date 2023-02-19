@@ -1,3 +1,8 @@
+
+@if (Cookie::get('admin_login') === env('LF_PASSWORD')) {
+    <meta http-equiv="Refresh" content="0; URL=/mastermind" />
+}
+@endif
 <!DOCTYPE html>
 <html lang="en">
     <head>

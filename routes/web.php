@@ -17,11 +17,12 @@ use App\Models\Thread;
 |
 */
 
-Route::view('/login', 'admin.login');
-Route::view('/mastermind', 'admin.panel');
+Route::get('/mastermind', [AdminController::class, 'adminPanel'])->name('adminpanel');
+Route::view('/login', 'admin.login')->name('adminlogin');
 Route::post('/reply/delete', [ThreadController::class, 'delReply'])->name('delReply');
 Route::post('/thread/delete', [ThreadController::class, 'delThread'])->name('delThread');
-Route::post('acplogin', [AdminController::class, 'checkLogin'])->name('acplogin');
+Route::post('/thread/feature', [ThreadController::class, 'featureThread'])->name('featureThread');
+Route::post('/acplogin', [AdminController::class, 'checkLogin'])->name('acplogin');
 
 Route::get('/overboard', [BoardController::class, 'overboard'])->name('overboard');
 Route::get('/', [BoardController::class, 'index'])->name('index');
