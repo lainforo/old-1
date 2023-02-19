@@ -22,6 +22,7 @@ Route::view('/login', 'admin.login')->name('adminlogin');
 Route::post('/reply/delete', [ThreadController::class, 'delReply'])->name('delReply');
 Route::post('/thread/delete', [ThreadController::class, 'delThread'])->name('delThread');
 Route::post('/thread/feature', [ThreadController::class, 'featureThread'])->name('featureThread');
+Route::post('/thread/unfeature', [ThreadController::class, 'unFeatureThread'])->name('unFeatureThread');
 Route::post('/acplogin', [AdminController::class, 'checkLogin'])->name('acplogin');
 
 Route::get('/overboard', [BoardController::class, 'overboard'])->name('overboard');

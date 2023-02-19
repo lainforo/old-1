@@ -69,4 +69,12 @@ class ThreadController extends Controller
         $thread->save();
         return redirect()->back();
     }
+
+    public function unFeatureThread(Request $request)
+    {
+        $thread = Thread::where('id', $request->threadid)->first();
+        $thread->featured = false;
+        $thread->save();
+        return redirect()->back();
+    }
 }
