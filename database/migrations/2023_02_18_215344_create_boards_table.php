@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('uri', 32);
             $table->string('title', 64);
             $table->string('description', 128);
+            $table->boolean('indexed');
         });
     }
 
