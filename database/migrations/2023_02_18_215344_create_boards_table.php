@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title', 64);
             $table->string('description', 128);
             $table->boolean('indexed');
+            $table->string('iconpath')->nullable();
         });
     }
 
