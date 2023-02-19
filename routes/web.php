@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BoardController;
 use App\Http\Controllers\ThreadController;
+use App\Http\Controllers\AdminController;
 use App\Models\Thread;
 
 /*
@@ -15,6 +16,12 @@ use App\Models\Thread;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::view('/login', 'admin.login');
+Route::view('/mastermind', 'admin.panel');
+Route::post('/reply/delete', [ThreadController::class, 'delReply'])->name('delReply');
+Route::post('/thread/delete', [ThreadController::class, 'delThread'])->name('delThread');
+Route::post('acplogin', [AdminController::class, 'checkLogin'])->name('acplogin');
 
 Route::get('/', [BoardController::class, 'index'])->name('index');
 Route::get('/about', [BoardController::class, 'about'])->name('about');

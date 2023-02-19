@@ -14,6 +14,9 @@
         <div class="boardlist noncenter">
             <h1>{{ $thread->subject }}</h1>
             by <span class="postername">{{ $thread->author }}</span> at {{ date("m/d/y (D) H:i:s", strtotime($thread->created_at)) }}
+            @if (Cookie::get('admin_login') === env('LF_PASSWORD'))
+                @include('form.modactions', ['postType' => 'thread'])
+            @endif
             <br />
             <pre class="threadbody">{{ $thread->body }}</pre>
             <br />

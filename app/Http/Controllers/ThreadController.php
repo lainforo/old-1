@@ -45,4 +45,18 @@ class ThreadController extends Controller
 
         return redirect()->back();
     }
+
+    public function delReply(Request $request)
+    {
+        Reply::where('id', $request->replyid)->delete();
+
+        return redirect()->back();
+    }
+
+    public function delThread(Request $request)
+    {
+        Thread::where('id', $request->threadid)->delete();
+        Reply::where('replyto', $request->threadid)->delete();
+        return redirect(route('index'));
+    }
 }
