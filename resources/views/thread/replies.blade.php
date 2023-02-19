@@ -6,6 +6,9 @@
         @endif
 
         <pre class="threadbody">{{ $reply->body }}</pre>
+        @if ($reply->die ?? '')
+        <pre class="threadbody"><span class="postername">{{ $reply->author }}</span> rolled a six-sided die, it landed on {{ $reply->die }}</pre>
+        @endif
 </div>
 <br />
 @endforeach

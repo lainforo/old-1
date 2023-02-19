@@ -42,7 +42,10 @@ class ThreadController extends Controller
         $reply->author = $request->author;
         $reply->body = $request->body;
         $reply->indexed = $request->indexed;
-
+        if ($request->rolldie == 'true') {
+            // user selected to roll die
+            $reply->die = random_int(1, 6);
+        }
         $reply->save();
 
         return redirect()->back();
