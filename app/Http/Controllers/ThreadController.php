@@ -27,6 +27,7 @@ class ThreadController extends Controller
         $thread->author = $request->author;
         $thread->subject = $request->subject;
         $thread->body = $request->body;
+        $thread->indexed = $request->indexed;
 
         $thread->save();
 
@@ -40,6 +41,7 @@ class ThreadController extends Controller
         $reply->replyto = $request->replyto;
         $reply->author = $request->author;
         $reply->body = $request->body;
+        $reply->indexed = $request->indexed;
 
         $reply->save();
 

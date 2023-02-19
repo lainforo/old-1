@@ -23,6 +23,7 @@ Route::post('/reply/delete', [ThreadController::class, 'delReply'])->name('delRe
 Route::post('/thread/delete', [ThreadController::class, 'delThread'])->name('delThread');
 Route::post('acplogin', [AdminController::class, 'checkLogin'])->name('acplogin');
 
+Route::get('/overboard', [BoardController::class, 'overboard'])->name('overboard');
 Route::get('/', [BoardController::class, 'index'])->name('index');
 Route::get('/about', [BoardController::class, 'about'])->name('about');
 Route::get('/{board_uri}/', [BoardController::class, 'getBoard'])->name('board');

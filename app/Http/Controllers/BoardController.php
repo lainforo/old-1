@@ -29,4 +29,11 @@ class BoardController extends Controller
         $threads = Thread::where('board', $board_uri)->orderBy('id', 'desc')->get();
         return view('board.view', ['boards' => $boards, 'board' => $board, 'threads' => $threads]);
     }
+
+    public function overboard()
+    {
+        $boards = Board::orderBy('uri', 'asc')->where('indexed', 'true')->get();
+        $threads = Thread::where('indexed', 'true')->orderBy('id', 'desc')->get();
+        return view('board.overboard', ['boards' => $boards, 'threads' => $threads]);
+    }
 }

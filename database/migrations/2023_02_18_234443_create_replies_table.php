@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('replyto');
             $table->string('author', 32);
             $table->string('body', 4096);
+            $table->boolean('indexed');
         });
     }
 
