@@ -245,3 +245,8 @@ hr {
 	width: inherit;
 	margin: inherit;
 }
+
+input, [type=text], textarea {
+	background-color: #fdfdf1;
+	border-color: #9f9f83;
+}

@@ -21,8 +21,10 @@ if ($postType == 'reply') {
 @if ($postType == 'thread')
 <form method="post" action="{{ $actionfeature }}" style="display: inline;">
     @csrf
-
     <input type="hidden" name="{{ $idname }}" value="{{ $idvalue }}">
     <input type="submit" value="[feature thread]">
+    @if ($board->indexed == false)
+    <b>Warning: featuring this thread will expose the hidden board "{{ $board->title }}"</b>
+    @endif
 </form>
 @endif
