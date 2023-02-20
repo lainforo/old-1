@@ -1,5 +1,7 @@
 html, body {
 	background: #FFFFEE;
+	background-image: url(../img/board-faded.png);
+	background-size: 10%;
     color: #800000;
     font-size: 1vw;
     font-family:'Times New Roman', Times, serif;
@@ -215,6 +217,7 @@ hr {
     margin: auto;
     border-color: #800000;
     border-style: solid;
+	height: 100%;
 }
 
 .thread {

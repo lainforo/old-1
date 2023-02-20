@@ -12,7 +12,7 @@
         @include('board.nav')
         <br />
         <div class="boardlist">
-            <h1>Welcome to {{ env('LF_NAME') }}</h1>
+            <h1>{{ env('LF_DESC') }}</h1>
             @if ($threads ?? '')
             <h2>Featured Posts</h2>
             @include('board.threads', ['isfeatured' => 'true'])

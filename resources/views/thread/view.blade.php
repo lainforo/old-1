@@ -3,6 +3,14 @@
     <head>
         <title>{{ $thread->subject }} - {{ env('LF_NAME') }}</title>
         <link rel="stylesheet" href="{{ URL::asset('assets/css/main.css') }}" />
+        @if ($board->background ?? '')
+            <style>
+                html, body {
+                    background-image: url("{{ $board->background }}");
+                    background-size: 100%, 100%;
+                }
+            </style>
+        @endif
     </head>
     <body>
         <div class="center">
