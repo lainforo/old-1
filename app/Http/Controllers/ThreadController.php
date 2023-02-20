@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use App\Models\Board;
 use App\Models\Reply;
@@ -9,6 +10,21 @@ use App\Models\Thread;
 
 class ThreadController extends Controller
 {
+    public function sendNtfy($text, $author, $ntfytype, $threadtitle)
+    {
+        if ($ntfytype == 'reply') {
+            $data = $author . ' replied: "' . $text . '" in ' . $threadtitle;
+        } elseif ($ntfytype == 'thread') {
+            $data = $author . ' created a new thread: "' . $text . '"';
+        }
+
+        $response = Http::withHeaders([
+            'Content-Type' => 'text/plain',
+        ])->post('http://ntfy.sh/lainforo', $data);
+
+        return $response;
+    }
+
     public function xkcd()
     {
         // generates a random xkcd comic
@@ -52,6 +68,7 @@ class ThreadController extends Controller
             $thread->tripcode = null;
         }
 
+        $this->sendNtfy($request->body, $request->author, 'thread', $thread->subject);
         $thread->save();
 
         return redirect()->back();
@@ -79,7 +96,9 @@ class ThreadController extends Controller
         }
         $reply->save();
 
+        
         $thread = Thread::where('id', $request->replyto)->first();
+        $this->sendNtfy($request->body, $request->author, 'reply', $thread->subject);
         $thread->updated_at = time();
         $thread->save();
 
