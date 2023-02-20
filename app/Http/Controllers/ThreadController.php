@@ -68,6 +68,10 @@ class ThreadController extends Controller
             $reply->xkcd = $this->xkcd();
         }
         $reply->save();
+        
+        $thread = Thread::where('id', $request->replyto)->first();
+        $thread->updated_at = time();
+        $thread->save();
 
         return redirect()->back();
     }

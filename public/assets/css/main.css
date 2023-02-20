@@ -217,6 +217,18 @@ hr {
     border-style: solid;
 }
 
+.thread {
+	border-color: #c7c7a0;
+	border-width: 1px;
+	border-style: solid;
+	background-color: #f8f8ef;
+	padding: 4px;
+}
+
+.thread:hover {
+	background-color: #ebebe3;
+}
+
 .threads {
     text-align: left;
     align-items: left;
@@ -280,4 +292,8 @@ input, [type=text], textarea {
 
   .boardnavbtn:hover {
 	color: red;
+  }
+
+  .grayish {
+	color: gray;
   }

@@ -14,6 +14,8 @@
         <div class="boardlist">
             <h1>The Overboard</h1>
             This shows all (public) threads and replies from every board on {{ env('LF_NAME') }}.
+            <br />
+            <i>Sorted by last reply</i>
                 <div class="threads">
                 <br /><br />
                 @include('board.threads', ['isoverboard' => 'true'])
