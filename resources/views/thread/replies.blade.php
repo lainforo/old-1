@@ -1,6 +1,6 @@
 @foreach ($replies as $reply)
 <div class="reply">
-        <span class="postername">{{ $reply->author }}</span> at {{ date("m/d/y (D) H:i:s", strtotime($reply->created_at)) }} No. {{ $reply->id }}
+        <span class="postername">{{ $reply->author }}</span> @if ($reply->tripcode) !<span class="postertrip">{{ substr($reply->tripcode, 0, 8) }}</span> @endif at {{ date("m/d/y (D) H:i:s", strtotime($reply->created_at)) }} No. {{ $reply->id }}
         @if (Cookie::get('admin_login') === env('LF_PASSWORD'))
             @include('form.modactions', ['postType' => 'reply'])
         @endif

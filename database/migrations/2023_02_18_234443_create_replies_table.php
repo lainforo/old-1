@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->integer('replyto');
             $table->string('author', 32);
+            $table->string('tripcode')->nullable();
             $table->string('body', 4096);
             $table->boolean('indexed');
             $table->integer('die')->nullable();

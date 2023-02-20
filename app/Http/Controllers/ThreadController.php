@@ -46,6 +46,11 @@ class ThreadController extends Controller
         $thread->subject = $request->subject;
         $thread->body = $request->body;
         $thread->indexed = $request->indexed;
+        if ($request->tripcode ?? '') {
+            $thread->tripcode = hash('sha256', $request->tripcode);
+        } else {
+            $thread->tripcode = null;
+        }
 
         $thread->save();
 
@@ -67,8 +72,13 @@ class ThreadController extends Controller
         if ($request->xkcd == 'true') {
             $reply->xkcd = $this->xkcd();
         }
+        if ($request->tripcode ?? '') {
+            $reply->tripcode = hash('sha256', $request->tripcode);
+        } else {
+            $reply->tripcode = null;
+        }
         $reply->save();
-        
+
         $thread = Thread::where('id', $request->replyto)->first();
         $thread->updated_at = time();
         $thread->save();
