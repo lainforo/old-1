@@ -1,0 +1,1 @@
+<b>{{ env('LF_NAME') }}</b> currently has <b>{{ $posts }}</b> total posts upon <b>{{ $boardcount }}</b> public boards.

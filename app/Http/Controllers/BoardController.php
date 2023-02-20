@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Board;
 use App\Models\Thread;
+use App\Models\Reply;
 
 class BoardController extends Controller
 {
@@ -13,7 +14,14 @@ class BoardController extends Controller
         // I'll definitely do more with this in the future :)
         $boards = Board::orderBy('uri', 'asc')->where('indexed', true)->get();
         $threads = Thread::orderBy('id', 'desc')->where('featured', true)->get();
-        return view('index', ['boards' => $boards, 'threads' => $threads]);
+        $posts = Thread::where('indexed', true)->count() + Reply::where('indexed', true)->count();
+        $boardcount = Board::where('indexed', true)->count();
+        return view('index', [
+            'boards' => $boards,
+            'threads' => $threads,
+            'posts' => $posts,
+            'boardcount' => $boardcount
+        ]);
     }
 
     public function about()

@@ -273,3 +273,11 @@ input, [type=text], textarea {
 	display: block;
   }
   
+  .boardnavbtn {
+	color: inherit;
+	text-decoration: none;
+  }
+
+  .boardnavbtn:hover {
+	color: red;
+  }

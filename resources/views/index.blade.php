@@ -15,6 +15,9 @@
             <h1>Welcome to {{ env('LF_NAME') }}</h1>
             <h2>Featured Posts</h2>
             @include('board.threads', ['isfeatured' => 'true'])
+            <br />
+            <br />
+            @include('board.statistics')
         </div>
     </body>
 </html>
