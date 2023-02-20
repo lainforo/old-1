@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BoardController;
 use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 use App\Models\Thread;
 
 /*
@@ -17,6 +18,9 @@ use App\Models\Thread;
 |
 */
 
+Route::view('/user/login', 'user.login')->name('userLogin');
+Route::post('/user/auth', [UserController::class, 'userAuth'])->name('userAuth');
+Route::get('/user/panel', [UserController::class, 'userPanel'])->name('userPanel');
 Route::get('/mastermind', [AdminController::class, 'adminPanel'])->name('adminpanel');
 Route::view('/login', 'admin.login')->name('adminlogin');
 Route::post('/reply/delete', [ThreadController::class, 'delReply'])->name('delReply');
