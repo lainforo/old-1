@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('body', 4096);
             $table->boolean('indexed');
             $table->integer('die')->nullable();
+            $table->integer('xkcd')->nullable();
         });
     }
 
