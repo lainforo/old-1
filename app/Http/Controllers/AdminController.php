@@ -16,7 +16,7 @@ class AdminController extends Controller
             $response->withCookie(cookie('admin_login', $request->password, 1440));
             return $response;
         } else {
-            return "password incorrect.";
+            return view('error', ['error' => "Incorrect login. Please try again."]);
         }
     }
 

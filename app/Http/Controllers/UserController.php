@@ -17,7 +17,7 @@ class UserController extends Controller
             $response->withCookie(cookie('user_login', $request->username, 43200));
             return $response;
         } else {
-            return "password incorrect";
+            return view('error', ['error' => "Incorrect login. Please try again."]);
         }
     }
 
