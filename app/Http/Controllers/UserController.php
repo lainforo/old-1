@@ -11,6 +11,9 @@ class UserController extends Controller
 {
     public function userAuth(Request $request)
     {
+        // Authenticate a user by using their information from a login form.
+        // See the form.userlogin view.
+
         if (hash('sha256', $request->password) == User::where('username', $request->username)->pluck('password')->first()) {
             $boards = Board::orderBy('slug', 'asc')->where('indexed', true)->get();
             $response = new Response(redirect(route('userPanel', ['boards' => $boards])));
@@ -23,6 +26,8 @@ class UserController extends Controller
 
     public function userPanel()
     {
+        // Build the user.panel template
+
         $boards = Board::orderBy('slug', 'asc')->where('indexed', true)->get();
         return view('user.panel', ['boards' => $boards]);
     }

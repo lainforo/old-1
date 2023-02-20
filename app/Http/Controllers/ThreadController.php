@@ -1,4 +1,11 @@
 <?php
+/*  ThreadController
+    @author LostBox66
+
+    For operations regarding threads,
+    put, del, change, etc.
+
+*/
 
 namespace App\Http\Controllers;
 
@@ -12,15 +19,20 @@ class ThreadController extends Controller
 {
     public function sendNtfy($text, $author, $ntfytype, $threadtitle)
     {
+        // Send notifications using ntfy.sh
+        // This is set up to use the environment variable NTFY_TOPIC
+
         if ($ntfytype == 'reply') {
             $data = $author . ' replied: "' . $text . '" in ' . $threadtitle;
         } elseif ($ntfytype == 'thread') {
             $data = $author . ' created a new thread: "' . $text . '"';
         }
 
+        $ntfysh = 'http://ntfy.sh/' . env('NTFY_TOPIC');
+
         $response = Http::withHeaders([
             'Content-Type' => 'text/plain',
-        ])->post('http://ntfy.sh/lainforo', $data);
+        ])->post($ntfysh, $data);
 
         return $response;
     }
@@ -28,6 +40,7 @@ class ThreadController extends Controller
     public function xkcd()
     {
         // generates a random xkcd comic
+        // see more at xkcd.com
 
         // Generate a random number between 1 and the latest comic number
         $latest_comic_number = 2739;
@@ -45,6 +58,8 @@ class ThreadController extends Controller
 
     public function getThread($board_uri, $thread_id)
     {
+        // Get a specific thread by ID.
+
         $boards = Board::orderBy('uri', 'asc')->where('indexed', true)->get();
         $board = Board::where('uri', $board_uri)->first();
         $thread = Thread::where('id', $thread_id)->first();
@@ -55,6 +70,8 @@ class ThreadController extends Controller
 
     public function putThread(Request $request)
     {
+        // Create a thread
+
         $thread = new Thread;
 
         $thread->board = $request->board;
@@ -76,6 +93,8 @@ class ThreadController extends Controller
 
     public function putReply(Request $request)
     {
+        // Create a reply
+
         $reply = new Reply;
 
         $reply->replyto = $request->replyto;
@@ -107,6 +126,8 @@ class ThreadController extends Controller
 
     public function delReply(Request $request)
     {
+        // Delete a reply by ID
+
         Reply::where('id', $request->replyid)->delete();
 
         return redirect()->back();
@@ -114,6 +135,8 @@ class ThreadController extends Controller
 
     public function delThread(Request $request)
     {
+        // Deletes a thread and all associated replies by ID
+
         Thread::where('id', $request->threadid)->delete();
         Reply::where('replyto', $request->threadid)->delete();
         return redirect(route('index'));
@@ -121,6 +144,8 @@ class ThreadController extends Controller
 
     public function featureThread(Request $request)
     {
+        // Feature a thread by ID
+
         $thread = Thread::where('id', $request->threadid)->first();
         $thread->featured = true;
         $thread->save();
@@ -129,6 +154,8 @@ class ThreadController extends Controller
 
     public function unFeatureThread(Request $request)
     {
+        // Unfeature a thread by ID
+
         $thread = Thread::where('id', $request->threadid)->first();
         $thread->featured = false;
         $thread->save();
