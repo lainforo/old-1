@@ -13,10 +13,12 @@
         <br />
         <div class="boardlist">
             <h1>Welcome to {{ env('LF_NAME') }}</h1>
+            @if ($threads ?? '')
             <h2>Featured Posts</h2>
             @include('board.threads', ['isfeatured' => 'true'])
             <br />
             <br />
+            @endif
             @include('board.statistics')
         </div>
     </body>

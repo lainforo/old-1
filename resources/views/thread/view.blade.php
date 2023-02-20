@@ -18,7 +18,7 @@
                 <div class="center"><img src="{{ $board->iconpath }}" height=128></div>
             @endif
             <h1>{{ $thread->subject }}</h1>
-            by <span class="postername">{{ $thread->author }}</span> at {{ date("m/d/y (D) H:i:s", strtotime($thread->created_at)) }}
+            by <span class="postername">{{ $thread->author }}</span> @if ($thread->tripcode) <span class="postertrip">!{{ substr($thread->tripcode, 0, 8) }}</span> @endif at {{ date("m/d/y (D) H:i:s", strtotime($thread->created_at)) }}
             @if (Cookie::get('admin_login') === env('LF_PASSWORD'))
                 @include('form.modactions', ['postType' => 'thread'])
             @endif

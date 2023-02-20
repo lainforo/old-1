@@ -11,9 +11,14 @@ class BoardController extends Controller
 {
     public function index()
     {
-        // I'll definitely do more with this in the future :)
         $boards = Board::orderBy('uri', 'asc')->where('indexed', true)->get();
-        $threads = Thread::orderBy('id', 'desc')->where('featured', true)->get();
+
+        if (Thread::orderBy('id', 'desc')->where('featured', true)->count() >= 1) {
+            $threads = Thread::orderBy('id', 'desc')->where('featured', true)->get();
+        } else {
+            $threads = null;
+        }
+
         $posts = Thread::where('indexed', true)->count() + Reply::where('indexed', true)->count();
         $boardcount = Board::where('indexed', true)->count();
         return view('index', [
