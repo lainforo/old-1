@@ -11,17 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('replies', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->integer('replyto');
-            $table->string('author', 32);
-            $table->string('tripcode')->nullable();
-            $table->string('body', 4096);
-            $table->boolean('indexed');
-            $table->integer('die')->nullable();
-            $table->integer('xkcd')->nullable();
-        });
+        Schema::create(
+            'replies', function (Blueprint $table) {
+                $table->id();
+                $table->timestamps();
+                $table->integer('replyto');
+                $table->string('author', 32);
+                $table->string('tripcode')->nullable();
+                $table->string('body', 4096);
+                $table->boolean('indexed');
+                $table->integer('die')->nullable();
+                $table->integer('xkcd')->nullable();
+            }
+        );
     }
 
     /**

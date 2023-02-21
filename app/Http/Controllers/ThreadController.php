@@ -30,9 +30,11 @@ class ThreadController extends Controller
 
         $ntfysh = 'http://ntfy.sh/' . env('NTFY_TOPIC');
 
-        $response = Http::withHeaders([
+        $response = Http::withHeaders(
+            [
             'Content-Type' => 'text/plain',
-        ])->post($ntfysh, $data);
+            ]
+        )->post($ntfysh, $data);
 
         return $response;
     }

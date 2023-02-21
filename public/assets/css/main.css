@@ -1,167 +1,167 @@
 html, body {
-	background: #FFFFEE;
-	background-image: url(../img/board-faded.png);
-	background-size: 10%;
+    background: #FFFFEE;
+    background-image: url(../img/board-faded.png);
+    background-size: 10%;
     color: #800000;
     font-size: 1vw;
     font-family:'Times New Roman', Times, serif;
 }
 
 a {
-	color: #0000EE;
+    color: #0000EE;
 }
 
 a:hover {
-	color: #DD0000;
+    color: #DD0000;
 }
 
 hr {
     width: 80%;
-	color: #800000;
-	background-color: #800000;
-	background-image: -webkit-linear-gradient(left,rgba(255,255,238,1),rgba(128,0,0,0.75),rgba(255,255,238,1));
-	background-image: -moz-linear-gradient(left,rgba(255,255,238,1),rgba(128,0,0,0.75),rgba(255,255,238,1));
-	background-image: -ms-linear-gradient(left,rgba(255,255,238,1),rgba(128,0,0,0.75),rgba(255,255,238,1));
-	background-image: -o-linear-gradient(left,rgba(255,255,238,1),rgba(128,0,0,0.75),rgba(255,255,238,1));
+    color: #800000;
+    background-color: #800000;
+    background-image: -webkit-linear-gradient(left,rgba(255,255,238,1),rgba(128,0,0,0.75),rgba(255,255,238,1));
+    background-image: -moz-linear-gradient(left,rgba(255,255,238,1),rgba(128,0,0,0.75),rgba(255,255,238,1));
+    background-image: -ms-linear-gradient(left,rgba(255,255,238,1),rgba(128,0,0,0.75),rgba(255,255,238,1));
+    background-image: -o-linear-gradient(left,rgba(255,255,238,1),rgba(128,0,0,0.75),rgba(255,255,238,1));
 }
 
 .reflink a:hover {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .logo {
-	clear: both;
-	text-align: center;
-	font-size: 2em;
-	color: #800000;
-	width: 100%;
+    clear: both;
+    text-align: center;
+    font-size: 2em;
+    color: #800000;
+    width: 100%;
 }
 
 .replymode {
-	background: #E04000;
-	text-align: center;
-	padding: 2px;
-	color: #FFFFFF;
-	width: 100%;
+    background: #E04000;
+    text-align: center;
+    padding: 2px;
+    color: #FFFFFF;
+    width: 100%;
 }
 
 .manageinfo {
-	background: #00B930;
-	text-align: center;
-	padding: 2px;
-	color: #FFFFFF;
-	width: 100%;
+    background: #00B930;
+    text-align: center;
+    padding: 2px;
+    color: #FFFFFF;
+    width: 100%;
 }
 
 .catalogmode {
-	background: #0040E0;
-	text-align: center;
-	padding: 2px;
-	color: #FFFFFF;
-	width: 100%;
+    background: #0040E0;
+    text-align: center;
+    padding: 2px;
+    color: #FFFFFF;
+    width: 100%;
 }
 
 .rules {
-	/*font-size:0.7em;*/
-	width: 468px;
-	font-size: 10px;
-	font-family: sans-serif;
+    /*font-size:0.7em;*/
+    width: 468px;
+    font-size: 10px;
+    font-family: sans-serif;
 }
 
 .rules li {
-	margin-left: 1em;
-	/*text-indent: 0em;*/
+    margin-left: 1em;
+    /*text-indent: 0em;*/
 }
 
 .postblock {
-	background: #EEAA88;
-	color: #800000;
-	font-weight: 800;
+    background: #EEAA88;
+    color: #800000;
+    font-weight: 800;
 }
 
 .footer {
-	font-size: 12px;
-	font-family: serif;
+    font-size: 12px;
+    font-family: serif;
 }
 
 .passvalid {
-	background: #EEAA88;
-	text-align: center;
-	width: 100%;
-	color: #ffffff;
+    background: #EEAA88;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
 }
 
 .dellist {
-	font-weight: bold;
-	text-align: center;
+    font-weight: bold;
+    text-align: center;
 }
 
 .delbuttons {
-	text-align: center;
-	padding-bottom: 4px;
+    text-align: center;
+    padding-bottom: 4px;
 
 }
 
 .managehead {
-	background: #AAAA66;
-	color: #400000;
-	padding: 0;
+    background: #AAAA66;
+    color: #400000;
+    padding: 0;
 }
 
 .postlists {
-	background: #FFFFFF;
-	width: 100%;
-	padding: 0;
-	color: #800000;
+    background: #FFFFFF;
+    width: 100%;
+    padding: 0;
+    color: #800000;
 }
 
 .row1 {
-	background: #EEEECC;
-	color: #800000;
+    background: #EEEECC;
+    color: #800000;
 }
 
 .row2 {
-	background: #DDDDAA;
-	color: #800000;
+    background: #DDDDAA;
+    color: #800000;
 }
 
 .unkfunc {
-	background: inherit;
-	color: #789922;
+    background: inherit;
+    color: #789922;
 }
 
 .filesize {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 .filetitle {
-	background: inherit;
-	font-size: 1.2em;
-	color: #CC1105;
-	font-weight: 800;
+    background: inherit;
+    font-size: 1.2em;
+    color: #CC1105;
+    font-weight: 800;
 }
 
 .postername {
-	color: #117743;
-	font-weight: bold;
+    color: #117743;
+    font-weight: bold;
 }
 
 .postertrip {
-	color: #228854;
+    color: #228854;
 }
 
 .oldpost {
-	color: #CC1105;
-	font-weight: 800;
+    color: #CC1105;
+    font-weight: 800;
 }
 
 .omittedposts {
-	color: #707070;
+    color: #707070;
 }
 
 .reply {
-	background: #F0E0D6 !important;
-	color: #800000 !important;
+    background: #F0E0D6 !important;
+    color: #800000 !important;
     width: 65%;
     border-right: 2px solid #9f9f9f;
     border-bottom: 3px solid #a98448;
@@ -169,39 +169,39 @@ hr {
 }
 
 .replyhl {
-	background: #F0C0B0;
-	color: #800000;
+    background: #F0C0B0;
+    color: #800000;
 }
 
 .replytitle {
-	font-size: 1.2em;
-	color: #CC1105;
-	font-weight: 800;
+    font-size: 1.2em;
+    color: #CC1105;
+    font-weight: 800;
 }
 
 .hoverpost {
-	background: #FFFFEE;
-	color: #800000;
+    background: #FFFFEE;
+    color: #800000;
 }
 
 .commentpostername {
-	color: #117743;
-	font-weight: 800;
+    color: #117743;
+    font-weight: 800;
 }
 
 .thumbnailmsg {
-	font-size: small;
-	color: #800000;
+    font-size: small;
+    color: #800000;
 }
 
 .abbrev {
-	color: #707070;
+    color: #707070;
 }
 
 .highlight {
-	background: #F0E0D6;
-	color: #800000;
-	border: 2px dashed #EEAA88;
+    background: #F0E0D6;
+    color: #800000;
+    border: 2px dashed #EEAA88;
 }
 
 .center {
@@ -217,19 +217,19 @@ hr {
     margin: auto;
     border-color: #800000;
     border-style: solid;
-	height: 100%;
+    height: 100%;
 }
 
 .thread {
-	border-color: #c7c7a0;
-	border-width: 1px;
-	border-style: solid;
-	background-color: #f8f8ef;
-	padding: 4px;
+    border-color: #c7c7a0;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #f8f8ef;
+    padding: 4px;
 }
 
 .thread:hover {
-	background-color: #ebebe3;
+    background-color: #ebebe3;
 }
 
 .threads {
@@ -253,50 +253,50 @@ hr {
 }
 
 .featured {
-	border-color: green;
-	background-color: rgba(188, 236, 188, 0.443);
-	border-style: solid;
-	border-width: 1px;
-	width: inherit;
-	margin: inherit;
+    border-color: green;
+    background-color: rgba(188, 236, 188, 0.443);
+    border-style: solid;
+    border-width: 1px;
+    width: inherit;
+    margin: inherit;
 }
 
 input, [type=text], textarea {
-	background-color: #fdfdf1;
-	border-color: #9f9f83;
+    background-color: #fdfdf1;
+    border-color: #9f9f83;
 }
 
 .hidden-checkbox {
-	display: none;
+    display: none;
   }
   
   .show-text-button {
-	display: inline-block;
-	cursor: pointer;
+    display: inline-block;
+    cursor: pointer;
   }
   
   .show-text-button:hover {
-	background-color: #333;
-	color: #fff;
+    background-color: #333;
+    color: #fff;
   }
   
   .hidden-text {
-	display: none;
+    display: none;
   }
   
   .hidden-checkbox:checked ~ .hidden-text {
-	display: block;
+    display: block;
   }
   
   .boardnavbtn {
-	color: inherit;
-	text-decoration: none;
+    color: inherit;
+    text-decoration: none;
   }
 
   .boardnavbtn:hover {
-	color: red;
+    color: red;
   }
 
   .grayish {
-	color: gray;
+    color: gray;
   }

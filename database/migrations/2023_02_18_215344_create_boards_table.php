@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('boards', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('uri', 32);
-            $table->string('title', 64);
-            $table->string('description', 128);
-            $table->boolean('indexed');
-            $table->string('iconpath')->nullable();
-            $table->string('background')->nullable();
-        });
+        Schema::create(
+            'boards', function (Blueprint $table) {
+                $table->id();
+                $table->timestamps();
+                $table->string('uri', 32);
+                $table->string('title', 64);
+                $table->string('description', 128);
+                $table->boolean('indexed');
+                $table->string('iconpath')->nullable();
+                $table->string('background')->nullable();
+            }
+        );
     }
 
     /**

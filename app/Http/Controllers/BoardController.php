@@ -30,12 +30,14 @@ class BoardController extends Controller
 
         $posts = Thread::where('indexed', true)->count() + Reply::where('indexed', true)->count();
         $boardcount = Board::where('indexed', true)->count();
-        return view('index', [
+        return view(
+            'index', [
             'boards' => $boards,
             'threads' => $threads,
             'posts' => $posts,
             'boardcount' => $boardcount
-        ]);
+            ]
+        );
     }
 
     public function about()
