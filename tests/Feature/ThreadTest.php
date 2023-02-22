@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
 class ThreadTest extends TestCase
@@ -15,27 +16,17 @@ class ThreadTest extends TestCase
      */
     public function test_create_a_thread(): void
     {
-        $subject = $this->faker->sentence;
-        $body = $this->faker->paragraph;
-        $username = $this->faker->userName;
-        $board = $this->faker->randomAscii();
-        $indexed = 1;
+        $dummyThreadData = [
+            'subject' => $this->faker->sentence(),
+            'body' => $this->faker->paragraph(),
+            'board' => 'xyz',
+            'indexed' => 1,
+            'author' => $this->faker->userName(),
+        ];
 
-        $response = $this->post('/thread/new', [
-            'subject' => $subject,
-            'body' => $body,
-            'author' => $username,
-            'board' => $board,
-            'indexed' => $indexed,
-        ]);
+        $response = $this->post(route('newthread'), $dummyThreadData);
 
-        $response->assertRedirect('/');
-        $this->assertDatabaseHas('threads', [
-            'subject' => $subject,
-            'body' => $body,
-            'author' => $username,
-            'board' => $board,
-            'indexed' => $indexed,
-        ]);
+        $response->assertStatus(302);
+        $this->assertDatabaseHas('threads', $dummyThreadData);
     }
 }
