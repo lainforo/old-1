@@ -18,7 +18,7 @@ class ThreadTest extends TestCase
         $subject = $this->faker->sentence;
         $body = $this->faker->paragraph;
         $username = $this->faker->userName;
-        $board = 'b';
+        $board = $this->faker->randomAscii();
         $indexed = 1;
 
         $response = $this->post('/thread/new', [
