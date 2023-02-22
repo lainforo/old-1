@@ -5,6 +5,7 @@ use App\Http\Controllers\BoardController;
 use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\CheckAdminCookie;
 use App\Models\Thread;
 
 /*
@@ -24,17 +25,17 @@ Route::post('/user/auth', [UserController::class, 'userAuth'])->name('userAuth')
 Route::get('/user/panel', [UserController::class, 'userPanel'])->name('userPanel');
 
 // Administrator actions
-Route::get('/mastermind', [AdminController::class, 'adminPanel'])->name('adminpanel');
+Route::get('/mastermind', [AdminController::class, 'adminPanel'])->name('adminpanel')->middleware(CheckAdminCookie::class);
 Route::view('/login', 'admin.login')->name('adminlogin');
 Route::post('/acplogin', [AdminController::class, 'checkLogin'])->name('acplogin');
 
 // Thread/reply operations
 Route::post('/thread/new', [ThreadController::class, 'putThread'])->name('newthread');
 Route::post('/reply/new', [ThreadController::class, 'putReply'])->name('newreply');
-Route::post('/thread/delete', [ThreadController::class, 'delThread'])->name('delThread');
-Route::post('/reply/delete', [ThreadController::class, 'delReply'])->name('delReply');
-Route::post('/thread/feature', [ThreadController::class, 'featureThread'])->name('featureThread');
-Route::post('/thread/unfeature', [ThreadController::class, 'unFeatureThread'])->name('unFeatureThread');
+Route::post('/thread/delete', [ThreadController::class, 'delThread'])->name('delThread')->middleware(CheckAdminCookie::class);
+Route::post('/reply/delete', [ThreadController::class, 'delReply'])->name('delReply')->middleware(CheckAdminCookie::class);
+Route::post('/thread/feature', [ThreadController::class, 'featureThread'])->name('featureThread')->middleware(CheckAdminCookie::class);
+Route::post('/thread/unfeature', [ThreadController::class, 'unFeatureThread'])->name('unFeatureThread')->middleware(CheckAdminCookie::class);
 
 // Meta/misc stuff
 Route::get('/overboard', [BoardController::class, 'overboard'])->name('overboard');

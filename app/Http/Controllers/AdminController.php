@@ -12,7 +12,7 @@ class AdminController extends Controller
     {
         if ($request->password == env('LF_PASSWORD')) {
             $boards = Board::orderBy('slug', 'asc')->get();
-            $response = new Response(view('admin.panel', compact('boards')));
+            $response = new Response(redirect(route('adminpanel', compact('boards'))));
             $response->withCookie(cookie('admin_login', $request->password, 1440));
             return $response;
         } else {
@@ -22,7 +22,7 @@ class AdminController extends Controller
 
     public function adminPanel()
     {
-        $boards = Board::orderBy('slug', 'asc')->get();
+        $boards = Board::orderBy('uri', 'asc')->get();
         return view('admin.panel', compact('boards'));
     }
 }

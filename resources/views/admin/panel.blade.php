@@ -1,5 +1,3 @@
-@if (Cookie::get('admin_login') === env('LF_PASSWORD'))
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -28,6 +26,3 @@
         </div>
     </body>
 </html>
-@else
-    Incorrect login.
-@endif
